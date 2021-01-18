@@ -213,7 +213,7 @@ c_s_s_soil <- function(ssurgo){
   return(spatial)
 }
 
-clean_sd <- function(data, var, sd_no){
+flag_sd <- function(data, var, sd_no){
   lower_bound <- mean(var, na.rm = TRUE) - sd_no*sd(var, na.rm = TRUE)
   upper_bound <- mean(var, na.rm = TRUE) - sd_no*sd(var, na.rm = TRUE)
   outlier_ls <- which(var < lower_bound | var > upper_bound)
