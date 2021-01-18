@@ -215,7 +215,7 @@ c_s_s_soil <- function(ssurgo){
 
 flag_sd <- function(data, var, sd_no){
   lower_bound <- mean(var, na.rm = TRUE) - sd_no*sd(var, na.rm = TRUE)
-  upper_bound <- mean(var, na.rm = TRUE) - sd_no*sd(var, na.rm = TRUE)
+  upper_bound <- mean(var, na.rm = TRUE) + sd_no*sd(var, na.rm = TRUE)
   outlier_ls <- which(var < lower_bound | var > upper_bound)
   flag_bad <- ifelse(seq_len(nrow(data)) %in% outlier_ls, "1", "0")
   data <- cbind(data, flag_bad)
